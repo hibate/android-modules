@@ -1,0 +1,13 @@
+def modulePrefix = ':'
+
+include modulePrefix + 'commons-beanutils-bridge'
+project(modulePrefix + 'commons-beanutils-bridge').projectDir = new File('commons/beanutils-bridge')
+include modulePrefix + 'commons-beanutils'
+project(modulePrefix + 'commons-beanutils').projectDir = new File('commons/beanutils')
+include modulePrefix + 'commons-digester3'
+project(modulePrefix + 'commons-digester3').projectDir = new File('commons/digester3')
+include modulePrefix + 'commons-logger-logback'
+project(modulePrefix + 'commons-logger-logback').projectDir = new File('commons/logger/logback')
+
+include modulePrefix + 'demo-app'
+project(modulePrefix + 'demo-app').projectDir = new File('demos/app')

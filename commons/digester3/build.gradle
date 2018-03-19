@@ -1,0 +1,64 @@
+apply from: rootDir.absolutePath + '/constants.gradle'
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion project.ext.compileSdkVersion
+    buildToolsVersion project.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${supportCompatVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+    testImplementation "junit:junit:${junitVersion}"
+    androidTestImplementation "com.android.support.test:runner:${testRunnerVersion}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${testEspressoCoreVersion}"
+
+    implementation files(libraryPath + '/commons/cglib-nodep-3.2.5.jar')
+    implementation files(libraryPath + '/commons/commons-logging-1.2.jar')
+    implementation project(modulePrefix + 'commons-beanutils-bridge')
+    implementation project(modulePrefix + 'commons-beanutils')
+}
+
+ext {
+    javadocTitle = 'Commons Digester'
+}
+apply from: rootDir.absolutePath + '/javadoc_library.gradle'
+
+task buildJar(dependsOn: ['compileReleaseSources'], type: org.gradle.api.tasks.bundling.Jar) {
+    // Jar 名称
+    baseName 'commons-digester3-android'
+    // 版本号
+    version '1.0.0'
+
+    // Jar 文件名称 = [baseName]-[appendix]-[version]-[classifier].[extension]
+
+    def buildPath = project.buildDir.absolutePath
+    buildPath = (buildPath.endsWith(File.separator)) ? buildPath.substring(0, buildPath.length() - 1) : buildPath
+    def classesReleasePath = buildPath + File.separator + "intermediates" + File.separator + "classes" + File.separator + "release"
+
+    def classesPath = classesReleasePath
+    from classesPath
+
+    exclude 'android*'
+    exclude 'org/hibate*'
+
+    // Jar file path
+    //def path = archivePath.absolutePath
+}
