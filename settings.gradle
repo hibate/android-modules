@@ -8,6 +8,10 @@ include modulePrefix + 'commons-digester3'
 project(modulePrefix + 'commons-digester3').projectDir = new File('commons/digester3')
 include modulePrefix + 'commons-logger-logback'
 project(modulePrefix + 'commons-logger-logback').projectDir = new File('commons/logger/logback')
+include modulePrefix + 'commons-logger-nativelogger'
+project(modulePrefix + 'commons-logger-nativelogger').projectDir = new File('commons/logger/nativelogger')
 
 include modulePrefix + 'demo-app'
 project(modulePrefix + 'demo-app').projectDir = new File('demos/app')
+include modulePrefix + 'demo-logger'
+project(modulePrefix + 'demo-logger').projectDir = new File('demos/logger')

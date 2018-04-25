@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <appender name="STDOUT" class="org.hibate.logger.logback.core.ConsoleAppender">
+        <debuggable>true</debuggable>
+    </appender>
+
+    <logger name="ch.qos" level="WARN" /> <!-- Logback -->
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
