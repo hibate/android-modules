@@ -10,7 +10,7 @@ Android Native Logger
 
 ### 编译
 
-参考[ slf-logger 编译说明](src/main/jni/libslflogger/README.md)初始化依赖环境。
+参考 [slf-logger 编译说明](../src/main/jni/libslflogger/README.md) 初始化依赖环境。
 
 双击源码路径下的 build.bat 脚本编译，双击 clean.bat 脚本执行清理。
 

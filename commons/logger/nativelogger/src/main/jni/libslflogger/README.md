@@ -10,7 +10,7 @@
 $ git clone https://github.com/hibate/slf-logger.git
 ```
 
-* 根据其中的 README.md 文件编译 slf-logger，将编译后的 release 目录下的库文件拷贝至当前文件夹中;
+* 根据其中的 [README.md](https://github.com/hibate/slf-logger) 文件编译 slf-logger，将编译后的 release 目录下的库文件拷贝至当前文件夹中;
 
 * 将 slf-logger 中的所有头文件拷贝至当前文件夹中;
 
